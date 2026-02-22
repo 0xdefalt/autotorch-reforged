@@ -2,22 +2,23 @@
   "schemaVersion": 1,
   "id": "autotorch",
   "version": "${version}",
-  "name": "Autotorch",
+  "name": "AutoTorch",
   "description": "Autoplace torches",
   "authors": [
-    "noteness"
+    "noteness",
+    "Defalt"
   ],
   "contact": {
-    "homepage": "https://github.com/necessary129/minecraft-autotorch",
-    "issues": "https://github.com/necessary129/minecraft-autotorch/issues",
-    "sources": "https://github.com/necessary129/minecraft-autotorch"
+    "homepage": "https://github.com/0xdefalt/autotorch-reforged",
+    "issues": "https://github.com/0xdefalt/autotorch-reforged/issues",
+    "sources": "https://github.com/0xdefalt/autotorch-reforged"
   },
   "license": "LGPL-3.0-or-later",
   "icon": "assets/autotorch/icon.png",
   "environment": "client",
   "entrypoints": {
     "client": [
-      "autotorch.autotorch.client.AutotorchClient"
+      "autotorch.autotorch.client.AutoTorchClient"
     ],
     "modmenu": [
       "autotorch.autotorch.client.ModMenuIntegration"
