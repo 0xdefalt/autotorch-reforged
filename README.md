@@ -7,12 +7,12 @@ This is a Fabric client mod which will help you place torches.
 ## Usage
 
 To use it, put torches in your offhand. It will then start automatically placing torches when the `lightLevel` of the
-block you are standing on is less than 4. It's that simple!
+block you are standing on is less than 4. It's that simple.
 
 ### Changing light level - introduced in 1.1
 
 You can change the light level at which the mod starts placing torches using the mod settings on Mod Menu. Or edit
-`.minecraft/config/autotorch.json` and change `lightLevel` to what you want
+`.minecraft/config/autotorch.json` and change `lightLevel` to what you want.
 
 ### Accurate torch placement - introduced in 1.2
 
