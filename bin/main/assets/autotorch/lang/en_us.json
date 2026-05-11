@@ -1,6 +1,6 @@
 {
   "text.autoconfig.autotorch.title": "Defalt's AutoTorch Reforged",
-  "text.autoconfig.autotorch.option.enabled": "Enable AutoTorch",
+  "text.autoconfig.autotorch.option.enabled": "Enable AutoTorch Reforged",
   "text.autoconfig.autotorch.option.lightLevel": "Minimum light Level",
   "text.autoconfig.autotorch.option.accuratePlacement": "Enable accurate torch placement"
 }

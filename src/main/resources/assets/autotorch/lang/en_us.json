@@ -1,10 +1,15 @@
 {
   "text.autoconfig.autotorch.title": "Defalt's AutoTorch Reforged",
-  "text.autoconfig.autotorch.option.enabled": "Enable AutoTorch",
+  "text.autoconfig.autotorch.option.enabled": "Enable AutoTorch Reforged",
   "text.autoconfig.autotorch.option.lightLevel": "Minimum light Level",
   "text.autoconfig.autotorch.option.accuratePlacement": "Enable accurate torch placement",
+  "text.autoconfig.autotorch.option.hudVisible": "Show status",
+  "text.autoconfig.autotorch.option.hudX": "Status X position",
+  "text.autoconfig.autotorch.option.hudY": "Status Y position",
   "autotorch.message.enabled": "Enabled automatic torch placement",
   "autotorch.message.disabled": "Disabled automatic torch placement",
+  "autotorch.status.on": "AutoTorch: ON",
+  "autotorch.status.off": "AutoTorch: OFF",
   "autotorch.autotorch.toggle": "Toggle AutoTorch",
   "category.autotorch.main": "AutoTorch"
 }

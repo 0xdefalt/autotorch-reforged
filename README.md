@@ -1,23 +1,38 @@
 # Defalt's AutoTorch Reforged
 
-This is a Fabric client mod which will help you place torches.
+Java mod with primary purpose of automate the placement of torches.
 
-#### NOTE: [Fabric API](https://www.curseforge.com/minecraft/mc-mods/fabric-api) is needed for this mod to function.
+## Features
 
-## Usage
+- Client-side only
+- In-game config screen via Mod Menu + Cloth Config
+- Automatic torch placement from offhand
+- Toggle AutoTorch with a keybind
+- Configurable minimum light level
+- Accurate torch placement option
+- Persistent hud status
+- Hud visibility control
+- Hud X/Y position control
 
-To use it, put torches in your offhand. It will then start automatically placing torches when the `lightLevel` of the
-block you are standing on is less than 4. It's that simple.
+## Requirements
 
-### Changing light level - introduced in 1.1
+- Fabric API
+- Mod Menu
+- Cloth Config API
 
-You can change the light level at which the mod starts placing torches using the mod settings on Mod Menu. Or edit
-`.minecraft/config/autotorch.json` and change `lightLevel` to what you want.
+## Configuration
 
-### Accurate torch placement - introduced in 1.2
+Open `Mod Menu -> Defalt's AutoTorch Reforged -> Configure`.
 
-You can enable the `accurateTorchPlacement` option in the mod settings if you want your torch to be placed on top of
-the block you are standing on, every time. It is turned off by default because it can be considered cheaty. So be
-careful while using it.
+### Available settings
 
-**NOTE: You only need to install this on your client. Installing on server is unnecessary.**
+- `Enable AutoTorch Reforged`
+- `Minimum light Level`
+- `Enable accurate torch placement`
+- `Show status`
+- `Status X position`
+- `Status Y position`
+
+Config file path:
+
+- `config/autotorch.json`

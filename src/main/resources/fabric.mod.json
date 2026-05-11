@@ -3,7 +3,6 @@
   "id": "autotorch",
   "version": "${version}",
   "name": "Defalt's AutoTorch Reforged",
-  "description": "Autoplace torches",
   "authors": [
     "noteness",
     "Defalt"
@@ -18,16 +17,18 @@
   "environment": "client",
   "entrypoints": {
     "client": [
-      "autotorch.autotorch.client.AutoTorchClient"
+      "io.github.defalt.autotorch.client.AutoTorchClient"
     ],
     "modmenu": [
-      "autotorch.autotorch.client.ModMenuIntegration"
+      "io.github.defalt.autotorch.client.integration.AutoTorchModMenu"
     ]
   },
   "depends": {
     "fabricloader": ">=0.18.1",
     "minecraft": "~1.21.11",
     "java": ">=21",
-    "fabric-api": "*"
+    "fabric-api": "*",
+    "cloth-config": "*",
+    "modmenu": "*"
   }
 }
