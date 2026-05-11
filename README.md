@@ -1,6 +1,6 @@
 # Defalt's AutoTorch Reforged
 
-Java mod with primary purpose of automate the placement of torches.
+Java mod with primary purpose of automatically placing torches.
 
 ## Features
 
@@ -35,4 +35,8 @@ Open `Mod Menu -> Defalt's AutoTorch Reforged -> Configure`.
 
 Config file path:
 
-- `config/autotorch.json`
+- `config/defalt-autotorch-reforged.json`
+
+## Credits
+
+This project is a fork of [necessary129/minecraft-autotorch](https://github.com/necessary129/minecraft-autotorch).

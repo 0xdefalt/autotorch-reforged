@@ -15,7 +15,8 @@ import java.nio.file.Path;
 public final class AutoTorchConfigManager {
 
     private static final Gson GSON = new GsonBuilder().setPrettyPrinting().create();
-    private static final Path PATH = FabricLoader.getInstance().getConfigDir().resolve("autotorch.json");
+    private static final String CONFIG_FILE_NAME = "defalt-autotorch-reforged.json";
+    private static final Path PATH = FabricLoader.getInstance().getConfigDir().resolve(CONFIG_FILE_NAME);
     private static AutoTorchConfig autoTorchConfig = new AutoTorchConfig();
 
     private AutoTorchConfigManager() {
