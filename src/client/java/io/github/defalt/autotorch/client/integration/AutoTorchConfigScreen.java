@@ -20,7 +20,7 @@ public final class AutoTorchConfigScreen {
         ConfigEntryBuilder configEntryBuilder = configBuilder.entryBuilder();
         AutoTorchConfig autoTorchConfig = AutoTorchConfigManager.getAutoTorchConfig();
         configCategory.addEntry(configEntryBuilder
-                .startBooleanToggle(Text.literal("Enable AutoTorch Reforged"), autoTorchConfig.enabled)
+                .startBooleanToggle(Text.literal("Enable AutoTorch"), autoTorchConfig.enabled)
                 .setDefaultValue(true)
                 .setSaveConsumer(value -> autoTorchConfig.enabled = value)
                 .build());

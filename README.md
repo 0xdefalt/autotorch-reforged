@@ -26,7 +26,7 @@ Open `Mod Menu -> Defalt's AutoTorch Reforged -> Configure`.
 
 ### Available settings
 
-- `Enable AutoTorch Reforged`
+- `Enable AutoTorch`
 - `Minimum light Level`
 - `Enable accurate torch placement`
 - `Show status`
