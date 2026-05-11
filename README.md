@@ -5,7 +5,7 @@ Java mod with primary purpose of automatically placing torches.
 ## Features
 
 - Client-side only
-- In-game config screen via Mod Menu + Cloth Config
+- In-game config screen via Mod Menu + Cloth Config API
 - Automatic torch placement from offhand
 - Toggle AutoTorch with a keybind
 - Configurable minimum light level
