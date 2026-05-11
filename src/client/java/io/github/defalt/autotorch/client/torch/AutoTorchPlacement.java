@@ -2,17 +2,17 @@ package io.github.defalt.autotorch.client.torch;
 
 import com.google.common.collect.ImmutableSet;
 import io.github.defalt.autotorch.client.config.AutoTorchConfig;
-import net.minecraft.block.Block;
-import net.minecraft.client.MinecraftClient;
-import net.minecraft.item.Item;
-import net.minecraft.item.Items;
-import net.minecraft.network.packet.c2s.play.PlayerMoveC2SPacket;
-import net.minecraft.util.Hand;
-import net.minecraft.util.hit.BlockHitResult;
-import net.minecraft.util.math.BlockPos;
-import net.minecraft.util.math.Direction;
-import net.minecraft.util.math.Vec3d;
-import net.minecraft.world.LightType;
+import net.minecraft.client.Minecraft;
+import net.minecraft.core.BlockPos;
+import net.minecraft.core.Direction;
+import net.minecraft.network.protocol.game.ServerboundMovePlayerPacket;
+import net.minecraft.world.InteractionHand;
+import net.minecraft.world.item.Item;
+import net.minecraft.world.item.Items;
+import net.minecraft.world.level.LightLayer;
+import net.minecraft.world.level.block.Block;
+import net.minecraft.world.phys.BlockHitResult;
+import net.minecraft.world.phys.Vec3;
 
 public final class AutoTorchPlacement {
 
@@ -22,32 +22,31 @@ public final class AutoTorchPlacement {
         // TODO: not yet implemented
     }
 
-    public static void tryPlace(MinecraftClient client, AutoTorchConfig config) {
-        if (client.player == null || client.world == null || client.interactionManager == null) {
+    public static void tryPlace(Minecraft client, AutoTorchConfig config) {
+        if (client.player == null || client.level == null || client.gameMode == null) {
             return;
         }
-        if (!TORCH_ITEMS.contains(client.player.getOffHandStack().getItem())) {
+        if (!TORCH_ITEMS.contains(client.player.getOffhandItem().getItem())) {
             return;
         }
-
-        BlockPos playerBlock = client.player.getBlockPos();
-        if (client.world.getLightLevel(LightType.BLOCK, playerBlock) < config.lightLevel && canPlaceTorch(client, playerBlock)) {
-            offHandRightClickBlock(client, config, playerBlock);
+        BlockPos blockPos = client.player.blockPosition();
+        if (client.level.getBrightness(LightLayer.BLOCK, blockPos) < config.lightLevel && canPlaceTorch(client, blockPos)) {
+            offHandRightClickBlock(client, config, blockPos);
         }
     }
 
-    private static void offHandRightClickBlock(MinecraftClient client, AutoTorchConfig config, BlockPos pos) {
-        Vec3d vec3d = Vec3d.ofBottomCenter(pos);
+    private static void offHandRightClickBlock(Minecraft client, AutoTorchConfig config, BlockPos pos) {
+        Vec3 vec3 = Vec3.atBottomCenterOf(pos);
         if (config.accuratePlacement) {
-            PlayerMoveC2SPacket.LookAndOnGround packet = new PlayerMoveC2SPacket.LookAndOnGround(client.player.getYaw(), 90.0F, true, false);
-            client.player.networkHandler.sendPacket(packet);
+            ServerboundMovePlayerPacket.Rot packet = new ServerboundMovePlayerPacket.Rot(client.player.getYRot(), 90.0F, true, false);
+            client.player.connection.send(packet);
         }
-        client.interactionManager.interactBlock(client.player, Hand.OFF_HAND, new BlockHitResult(vec3d, Direction.DOWN, pos, false));
-        client.interactionManager.interactItem(client.player, Hand.OFF_HAND);
+        client.gameMode.useItemOn(client.player, InteractionHand.OFF_HAND, new BlockHitResult(vec3, Direction.DOWN, pos, false));
+        client.gameMode.useItem(client.player, InteractionHand.OFF_HAND);
     }
 
-    private static boolean canPlaceTorch(MinecraftClient client, BlockPos pos) {
-        return client.world.getBlockState(pos).getFluidState().isEmpty() && Block.sideCoversSmallSquare(client.world, pos.down(), Direction.UP);
+    private static boolean canPlaceTorch(Minecraft client, BlockPos pos) {
+        return client.level.getBlockState(pos).getFluidState().isEmpty() && Block.canSupportCenter(client.level, pos.below(), Direction.UP);
     }
 
 }
