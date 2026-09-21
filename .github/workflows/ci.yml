@@ -5,6 +5,7 @@ on:
   push:
     branches:
       - main
+      - dev
 
 permissions:
   contents: read
@@ -35,17 +36,17 @@ jobs:
         run: ./gradlew build
 
       - name: Collect distributable jars
-        if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+        if: github.event_name == 'push'
         run: |
           mkdir -p dist
           cp build/libs/*.jar dist/
           rm -f dist/*-dev.jar dist/*-sources.jar
 
-      - name: Upload main snapshot artifacts
-        if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+      - name: Upload snapshot artifacts
+        if: github.event_name == 'push'
         uses: actions/upload-artifact@v4
         with:
-          name: main-snapshot-${{ github.sha }}
+          name: ${{ github.ref_name }}-snapshot-${{ github.sha }}
           path: dist/*.jar
           if-no-files-found: error
           retention-days: 14
